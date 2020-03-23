@@ -77,7 +77,7 @@ def error_graph(data_set):
 
 def get_dataset(file):
     """
-    Returns the normalized data data set of the speficied file
+    Returns the normalized data set of the speficied file
     """
     data = np.genfromtxt(file, delimiter=",", usecols=(0, 1, 2, 3))
     return np.apply_along_axis(lambda x: x/np.linalg.norm(x), 1, data)
@@ -88,7 +88,7 @@ test_dataset = get_dataset("data_sets/test.csv")
 validation_dataset = get_dataset("data_sets/validation.csv")
 
 # Creates SOM of 8x8 dimentions
-som = MiniSom(8, 8, 4, sigma=1.3, learning_rate=0.5)
+som = MiniSom(8, 8, 4, sigma=1.0, learning_rate=0.5)
 # Initializes the weights with info of the dataset
 som.pca_weights_init(train_dataset)
 
