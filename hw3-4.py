@@ -88,7 +88,7 @@ test_dataset = get_dataset("data_sets/test.csv")
 validation_dataset = get_dataset("data_sets/validation.csv")
 
 # Creates SOM of 8x8 dimentions
-som = MiniSom(8, 8, 4, sigma=1.0, learning_rate=0.5)
+som = MiniSom(8, 8, 4, sigma=1.3, learning_rate=0.5)
 # Initializes the weights with info of the dataset
 som.pca_weights_init(train_dataset)
 
@@ -101,5 +101,6 @@ print("Training took {} seconds!".format(end - start))
 # Generation of graphs
 classification_graph("test", test_dataset)
 classification_graph("validation", validation_dataset)
+classification_graph("train", train_dataset)
 frequency_graph(train_dataset)
 error_graph(train_dataset)
